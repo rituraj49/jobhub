@@ -6,6 +6,7 @@ dotenv.config();
 import 'express-async-errors';
 import morgan from 'morgan';
 
+import cors from 'cors'
 // db and authentication
 import connectDb from './db/connect.js';
 
@@ -37,6 +38,8 @@ if(process.env.NODE_ENV !== 'production'){
 }
 // console.log("server running");
 app.use(express.static(path.resolve(__dirname, './public')));
+
+app.use(cors());
 
 app.use(express.json());
 

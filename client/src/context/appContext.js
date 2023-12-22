@@ -108,7 +108,7 @@ const AppProvider = ({ children }) => {
         // console.log(currentUser);
         dispatch({ type: REGISTER_USER_BEGIN });
         try {
-            const response = await axios.post('/api/v1/auth/register', currentUser);
+            const response = await axios.post('/auth/register', currentUser);
             console.log(response);
             const { user, token, location } = response.data;
             dispatch({
@@ -131,7 +131,8 @@ const AppProvider = ({ children }) => {
     const loginUser = async (candidateUser) => {
         dispatch({ type: LOGIN_USER_BEGIN });
         try {
-            const { data } = await axios.post('http://localhost:5000/api/v1/auth/login', candidateUser);
+            // const { data } = await axios.post('http://localhost:5000/api/v1/auth/login', candidateUser);
+            const { data } = await axios.post('/auth/login', candidateUser);
             console.log(data);
             const { user, token, location } = data;
             dispatch({
@@ -155,7 +156,7 @@ const AppProvider = ({ children }) => {
         dispatch({ type: SETUP_USER_BEGIN });
         console.log(currentUser);
         try {
-            const { data } = await axios.post(`/api/v1/auth/${endPoint}`, currentUser);
+            const { data } = await axios.post(`/auth/${endPoint}`, currentUser);
             console.log(data);
 
             const { user, token, location } = data;
