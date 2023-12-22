@@ -51,7 +51,7 @@ const AppProvider = ({ children }) => {
     // axios
     // axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`;
     const authFetch = axios.create({
-        baseURL: '/api/v1',
+        baseURL: 'https://jobhub-rituraj.onrender.com//api/v1',
         // headers: {
         //     Authorization: `Bearer ${state.token}`,
         // }
