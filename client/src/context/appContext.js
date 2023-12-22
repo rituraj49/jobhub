@@ -371,17 +371,19 @@ const AppProvider = ({ children }) => {
 
     const getStats = async () => {
         dispatch({ type: GET_STATS_BEGIN });
-        // console.log("edit job begin");
+        console.log("get stats begin");
         try {
             const { data } = await authFetch.get('/jobs/stats');
-            console.log(data);
+            console.log(data, "stats data");
             const { defaultStats, monthlyApplications } = data;
             dispatch({
                 type: GET_STATS_SUCCESS,
                 payload: { defaultStats, monthlyApplications }
             })
         } catch (error) {
-            console.log(error.response);
+            // console.log(error.response);
+            console.log("stats error");
+            console.log(error);
             // logoutUser();
             dispatch({
                 type: GET_STATS_ERROR, //check the action
