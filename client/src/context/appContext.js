@@ -73,7 +73,7 @@ const AppProvider = ({ children }) => {
         // console.log('response interceptor');
         return response
     }, (error) => {
-        console.log(error.response);
+        console.log(error);
         if (error.response.status === 401) {
             console.log('AUTH ERROR');
             logoutUser();
@@ -298,7 +298,7 @@ const AppProvider = ({ children }) => {
             // logoutUser();
             dispatch({
                 type: CREATE_JOB_ERROR,
-                payload: { msg: error.response.data.msg }
+                payload: { msg: error.response }
             });
         }
         clearAlert();
