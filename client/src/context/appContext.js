@@ -51,7 +51,7 @@ const AppProvider = ({ children }) => {
     // axios
     // axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`;
     const authFetch = axios.create({
-        baseURL: 'https://jobhub-rituraj.onrender.com//api/v1',
+        baseURL: 'https://jobhub-rituraj.onrender.com/api/v1',
         // headers: {
         //     Authorization: `Bearer ${state.token}`,
         // }
@@ -385,7 +385,7 @@ const AppProvider = ({ children }) => {
             // logoutUser();
             dispatch({
                 type: GET_STATS_ERROR, //check the action
-                payload: { msg: error.response.data.msg }
+                payload: { msg: error.response }
             });
         }
         clearAlert();
